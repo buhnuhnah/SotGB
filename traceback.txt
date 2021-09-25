@@ -1,0 +1,36 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/ch1.rpy", line 15, in script
+    play music "<loop>celesteTheme.mp3"
+  File "renpy/common/000statements.rpy", line 129, in execute_play_music
+    relative_volume=eval(p.get("volume", "1.0")))
+Exception: Parsing audio spec u'<loop>celesteTheme.mp3': expected float at end..
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/ch1.rpy", line 15, in script
+    play music "<loop>celesteTheme.mp3"
+  File "renpy/ast.py", line 1969, in execute
+    self.call("execute")
+  File "renpy/ast.py", line 1957, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "renpy/statements.py", line 278, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 129, in execute_play_music
+    relative_volume=eval(p.get("volume", "1.0")))
+  File "renpy/audio/music.py", line 127, in play
+    c.enqueue(filenames, loop=loop, synchro_start=synchro_start, fadein=fadein, tight=tight, loop_only=loop_only, relative_volume=relative_volume)
+  File "renpy/audio/audio.py", line 618, in enqueue
+    filename, _, _ = self.split_filename(filename, False)
+  File "renpy/audio/audio.py", line 377, in split_filename
+    loop = expect_float()
+  File "renpy/audio/audio.py", line 347, in expect_float
+    raise exception("expected float at end.")
+Exception: Parsing audio spec u'<loop>celesteTheme.mp3': expected float at end..
+
+Windows-10-10.0.19041
+Ren'Py 7.4.4.1439
+SoGB 1.0
+Sat Sep 25 15:39:19 2021
